@@ -25,7 +25,7 @@ internal extension Int {
 internal extension Double {
     
     func factorial() -> Double {
-        if Darwin.floor(self) == self && self > 1 {
+        if Foundation.floor(self) == self && self > 1 {
             // it's a factorial of an integer
             
             if self <= Double(Int.largestSupportedIntegerFactorial) {
