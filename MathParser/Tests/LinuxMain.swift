@@ -3,5 +3,6 @@ import XCTest
 import MathParserTests
 
 var tests = [XCTestCaseEntry]()
-tests += MathParserTests.allTests()
+tests += MathParserTests.__allTests()
+
 XCTMain(tests)
