@@ -52,6 +52,10 @@ extension Operator {
         //mathematically, it should be Right associative, but it's usually parsed as Left associative
         //rdar://problem/8692313
         
+        #if os(Linux)
+        return .right
+        #else
+        
         let expression = NSExpression(format: "2 ** 3 ** 2")
         let result = expression.expressionValue(with: nil, context: nil) as? NSNumber
         
@@ -60,6 +64,8 @@ extension Operator {
         } else {
             return .left
         }
+        
+        #endif
     }()
     
     internal var builtInOperator: BuiltInOperator? { return BuiltInOperator(rawValue: self.function) }
