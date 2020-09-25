@@ -377,7 +377,7 @@ class TokenResolverTests: XCTestCase {
         let locales = Locale.availableIdentifiers.map { Locale(identifier: $0) }
         
         for locale in locales {
-            let n = arc4random()
+            let n = UInt32.random(in: UInt32.min...UInt32.max)
             let f = NumberFormatter()
             f.numberStyle = .decimal
             f.usesGroupingSeparator = false
