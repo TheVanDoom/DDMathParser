@@ -343,6 +343,10 @@ class TokenResolverTests: XCTestCase {
     }
     
     func testLocalizedNumbers() {
+        #if os(Linux)
+        XCTFail("Linux crashes with localized numbers in this test")
+        return
+        #endif
         var c = Configuration.default
         c.locale = Locale(identifier: "fr_FR")
         guard let tokens = XCTAssertNoThrows(try TokenResolver(string: "sum(1,2, 34, 5,6,7,8,9)", configuration: c).resolve()) else { return }
